@@ -1,6 +1,8 @@
 # Grafgiti
 Create graffity on your github contributions wall.
 
+![Screencast](https://github.com/mohebifar/grafgiti/blob/master/screencast.gif)
+
 # Usage
 Install grafgiti globally:
 
@@ -28,4 +30,10 @@ git push
 ```
 
 # Technologies
-I have put together React, React-blessed, Redux, Redux-saga to create this tool.
+I have put together the following tools to create Grafgiti:
+
+* React
+* React-blessed
+* Redux
+* Redux-saga
+* Simple-git
