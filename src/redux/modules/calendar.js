@@ -1,5 +1,6 @@
 import winston from 'winston';
 import moment from 'moment';
+import { defaultCoefficient } from 'config';
 import { put, select } from 'redux-saga/effects';
 import { dummyCommit } from 'utils/git';
 import { setProgress, setWorking } from './progress';
@@ -15,6 +16,7 @@ export const COMMIT = 'calendar/COMMIT';
 
 // Initial state
 const initialStore = {
+  coefficient: defaultCoefficient,
   days: [],
   focused: null
 };
@@ -170,7 +172,7 @@ export function *watchInitialize() {
 
 // Watch for committing request
 export function *watchCommit() {
-  const coefficient = 5;
+  const coefficient = yield select(state => state.calendar.coefficient);
   const days = yield select(state => state.calendar.days);
   let allCommits = yield select(state => state.calendar.days.reduce((value, day) => value + day.value, 0));
   yield put(setWorking());
