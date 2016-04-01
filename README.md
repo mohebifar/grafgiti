@@ -23,11 +23,15 @@ Run grafgiti:
 grafgiti
 ```
 
-Tada! Follow the instructions below the screen. After designing your grafgiti press "D" to commit it. Then press "q" to exit and run:
+Tada! Follow the instructions below the screen. After designing your grafgiti press "D" to commit it. Then press "Q" to exit and run:
 
 ```
 git push
 ```
+
+The output would be something like this:
+
+![Grafgiti output](https://www.dropbox.com/s/2gp7evacncfae6g/grafgiti-result.png?dl=1)
 
 # Technologies
 I have put together the following tools to create Grafgiti:
