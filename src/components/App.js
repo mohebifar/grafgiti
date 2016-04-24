@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import Designer from './Designer';
 import Help from './Help';
 import ProgressBar from './ProgressBar';

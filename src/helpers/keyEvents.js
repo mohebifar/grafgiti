@@ -1,5 +1,10 @@
-import { move, increaseValue, setValue, setAllValue, commit } from 'redux/modules/calendar';
-import blessed from 'blessed';
+import {
+  move,
+  increaseValue,
+  setValue,
+  setAllValue,
+  commit
+} from 'redux/modules/calendar';
 
 export default function assignKeyEvents(screen, store) {
   screen.key(['escape', 'q', 'C-c'], () => process.exit(0));

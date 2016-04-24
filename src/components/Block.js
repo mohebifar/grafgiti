@@ -14,6 +14,7 @@ export default class Block extends Component {
       y: PropTypes.number.isRequired
     }),
     value: PropTypes.number.isRequired,
+    setFocused: PropTypes.func.isRequired,
     focused: PropTypes.bool.isRequired
   };
 
@@ -32,35 +33,38 @@ export default class Block extends Component {
       blockClasses.push(classes.normal);
     }
 
-    return (<element
-      left={(1 + horizontalCellSpacing) * x}
-      top={(1 + verticalCellSpacing) * y}>
-      <text
-        clickable={true}
-        onClick={this.handleClick}
-        class={blockClasses}
-        style={{fg: levels[value]}}
+    return (
+      <element
+        left={(1 + horizontalCellSpacing) * x}
+        top={(1 + verticalCellSpacing) * y}
       >
-        ◼
-      </text>
-      {
-        focused ? <text
-          style={{fg: 'red'}}
-          left={1}
+        <text
+          clickable
+          onClick={this.handleClick}
+          class={blockClasses}
+          style={{fg: levels[value]}}
         >
-          ◀
-        </text> : null
-      }
-    </element>);
+          ◼
+        </text>
+        {
+          focused ? <text
+            style={{fg: 'red'}}
+            left={1}
+          >
+            ◀
+          </text> : null
+        }
+      </element>
+    );
   }
 }
 
 const levels = [
-  "#343434",
-  "#2e643d",
-  "#589f43",
-  "#b9fc04",
-  "#98bc21"
+  '#343434',
+  '#2e643d',
+  '#589f43',
+  '#b9fc04',
+  '#98bc21'
 ];
 
 const classes = {

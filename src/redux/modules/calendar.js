@@ -50,7 +50,9 @@ export default function reducer(state = initialStore, action) {
         ]
       };
     case SET_FOCUS:
-      let toFocus = state.days.find(({position}) => position.x === action.x && position.y === action.y);
+      let toFocus = state.days.find(
+        ({position}) => position.x === action.x && position.y === action.y
+      );
 
       if (toFocus) {
         if (state.focused) {
@@ -75,7 +77,10 @@ export default function reducer(state = initialStore, action) {
         y: position.y + vector.y
       };
 
-      let destination = state.days.find(({position}) => position.x === destinationPosition.x && position.y === destinationPosition.y);
+      let destination = state.days.find(
+        ({position: dayPosition}) =>
+        dayPosition.x === destinationPosition.x && dayPosition.y === destinationPosition.y
+      );
 
       if (destination) {
         state.focused.focused = false;
@@ -90,7 +95,7 @@ export default function reducer(state = initialStore, action) {
       };
     case SET_ALL_VALUE:
       state.days.forEach(day => {
-        day.value = action.value
+        day.value = action.value;
       });
 
       return {
@@ -174,13 +179,16 @@ export function *watchInitialize() {
 export function *watchCommit() {
   const coefficient = yield select(state => state.calendar.coefficient);
   const days = yield select(state => state.calendar.days);
-  let allCommits = yield select(state => state.calendar.days.reduce((value, day) => value + day.value, 0));
+  let allCommits = yield select(
+    state => state.calendar.days.reduce((value, day) => value + day.value, 0)
+  );
   yield put(setWorking());
   allCommits *= coefficient;
   let commitsDone = 0;
 
-  for (let day of days) {
-    for (let i = 0; i < day.value * coefficient; i++) {
+  for (const day of days) {
+    const commitsCount = day.value * coefficient;
+    for (let i = 0; i < commitsCount; i++) {
       winston.info('commit', `Committing for the day ${day.time.format('YYYY-MM-DD')}`);
       yield dummyCommit(day);
       commitsDone++;
@@ -211,7 +219,7 @@ function prepareDays() {
   const start = moment().subtract(1, 'years').startOf('week');
   const end = start.clone().add(52, 'weeks');
   const days = [];
-  let day = start.clone();
+  const day = start.clone();
   let index = 0;
 
   while (day.isBefore(end)) {

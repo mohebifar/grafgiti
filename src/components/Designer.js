@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { initialize } from 'redux/modules/calendar';
 import { width, height } from 'config';
@@ -12,6 +12,11 @@ import Block from './Block';
   {initialize}
 )
 export default class Designer extends Component {
+  static propTypes = {
+    initialize: PropTypes.func.isRequired,
+    days: PropTypes.array.isRequired
+  };
+
   componentWillMount() {
     this.props.initialize();
   }

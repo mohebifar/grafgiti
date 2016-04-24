@@ -1,8 +1,8 @@
 import fs from 'fs';
-import SimpleGit from 'simple-git';
+import simpleGit from 'simple-git';
 import { gitPath, dummyFilePath } from 'config';
 
-const git = SimpleGit(gitPath);
+const git = simpleGit(gitPath);
 
 export function dummyCommit(day) {
   return new Promise((resolve, reject) => {
