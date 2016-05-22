@@ -1,5 +1,5 @@
 # Grafgiti
-Create graffity on your github contributions wall.
+Create graffiti on your github contributions wall.
 
 ![Screencast](https://www.dropbox.com/s/h353fz4yd2goeqs/grafgiti-screencast.gif?dl=1)
 
