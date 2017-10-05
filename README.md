@@ -1,7 +1,7 @@
 # Grafgiti
 Create graffiti on your github contributions wall.
 
-![Screencast](https://www.dropbox.com/s/h353fz4yd2goeqs/grafgiti-screencast.gif?dl=1)
+![Screencast](https://raw.githubusercontent.com/mohebifar/grafgiti/master/screencast.gif)
 
 # Usage
 Install grafgiti globally:
